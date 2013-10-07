@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NoobNews</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "NoobNews", posts_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home", posts_path %></li>
+              <% if current_user %>
+                <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
+                <li><%= link_to "Logged In As #{current_user.user_name}"  %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_path %></li>
+                <li><%= link_to "Log In", new_session_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+<div class="container">
+<%= flash[:notice] %>
+<%= yield %>
+</div>
+</body>
+</html>

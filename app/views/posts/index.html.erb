@@ -1,0 +1,39 @@
+<h1>Welcome to Noob News</h1>
+
+<p><%= link_to "Click Here to View All Posts", @post_path %></p>
+
+<div id="create_post">
+  <% if current_user %>
+    <%= form_for @post do |f| %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.label :link %>
+      <%= f.text_field :link %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="post_information">
+  <ul>
+    <% @sort.each do |post| %>
+      <li><%= link_to post.description, post.link %></li>
+      <p>Posted by <%= post.user.user_name %></p>
+      <p><%= post.votes.count %> votes </p>
+      <% if current_user %>
+        <%= form_for @vote do |f| %>
+          <%= f.hidden_field :post_id, :value => post.id %>
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+  <div>
+    <% if current_user %>
+      <%= link_to "New Comment", new_post_comment_path(post) %>
+    <% end %>
+      <% post.comments.each do |comment| %>
+        <p><%= "Commented by: #{comment.user.user_name} "%><%= comment.content %></p>
+      <% end %>
+    <% end %>
+  </div>
+  </ul>
+</div>

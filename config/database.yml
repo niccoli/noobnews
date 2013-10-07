@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: noob_news_development
+
+test:
+  adapter: postgresql
+  database: noob_news_test
