@@ -1,25 +1,22 @@
+<p class="headers"><%= link_to "Back to Posts", posts_path %></p>
+
+<hr>
+
 <h2><%= link_to @post.description, @post.link %></h2>
 
-<br>
-<br>
+<div class="form">
+  <% if current_user %>
+    <%= form_for [@commentable, @comment] do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+</div>
 
 <% @comments.each do |comment| %>
+
+<hr>
+
   <div class="allComments"><%= "Comment by: #{comment.user.user_name}" %>
     <ul><%= comment.content %></ul></div>
 <% end %>
-
-<br>
-<br>
-
-<% if current_user %>
-  <%= form_for [@commentable, @comment] do |f| %>
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
-
-<br>
-<br>
-
-<p><%= link_to "Back to Posts", posts_path %></p>

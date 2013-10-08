@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   validates :description, :presence => true
   validates :link, :presence => true
   validates :user_id, :presence => true
-  validates :description, :length => { :maximum => 25 }
+  validates :description, :length => { :maximum => 150 }
   belongs_to :user
   has_many :votes
   has_many :comments, as: :commentable

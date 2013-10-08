@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     if @post.save
       flash[:notice] = "Your Post has been added."
-      redirect_to '/'
+      redirect_to posts_path
     else
       render :new
     end

@@ -32,7 +32,13 @@ textarea {
   margin-bottom: 10px;
 }
 
+#homepage{
+  margin-bottom: 10%;
+}
 
+hr {
+  margin-bottom: 4%;
+}
 ul {
   list-style: none;
 }
@@ -40,6 +46,10 @@ ul {
 .navbar {
   height: 10%;
   background-color: purple;
+  font-family: 'Knewave', cursive;
+  font-size: 150%;
+  text-shadow: -8px 0 purple;
+  color: white;
 }
 
 .row {
@@ -52,27 +62,62 @@ li {
 
 .homepage {
   background-image: url(http://i.imgur.com/d9s4rze.jpg);
+  background-repeat:no-repeat;
+  background-position:center;
 }
 
 h1 {
   font-family: 'Knewave', cursive;
+  text-align: center;
   font-size: 700%;
   text-shadow: -8px 0 purple;
   color: white;
 }
 
+p {
+  font-family: 'Knewave', cursive;
+  text-align: center;
+  font-size: 200%;
+  text-shadow: -2px 0 white;
+  color: black;
+}
 
+.headers {
+  text-align: left;
+  font-size: 150%;
+  text-shadow: -2px 0 white;
+  color: black;
+}
 
+.links a {
+  font-size: 200%;
+  color: purple;
+}
 
+.authentication {
+  background-color: black;
+  border-radius: 8px;
+  width: 25%;
+  font-size: 400%;
+  text-align: center;
+  padding-bottom: 2%;
+  margin-bottom: 5%;
+}
 
+.form {
+  font-family: 'Knewave', cursive;
+  font-size: 100%;
+  text-align: left;
+}
 
+#submit {
+  margin-top: 3%;
+}
 
-
-
-
-
-
-
+.fields {
+  border-radius: 4px;
+  width: 20%;
+}
 
 
 

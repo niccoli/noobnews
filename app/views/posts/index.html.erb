@@ -1,20 +1,25 @@
-<div id="create_post">
-  <% if current_user %>
-    <%= form_for @post do |f| %>
-      <%= f.label :description %>
-      <%= f.text_field :description, :input_html => {:maxlength => 25} %>
-      <%= f.label :link %>
-      <%= f.text_field :link %>
-      <%= f.submit %>
+<p class="headers"><%= "All Posts" %></p>
+
+<hr>
+
+<div class="form">
+  <div id="create_post">
+    <% if current_user %>
+      <%= form_for @post do |f| %>
+        <%= f.label :description %>
+        <%= f.text_field :description, :input_html => {:maxlength => 25} %>
+        <%= f.label :link %>
+        <%= f.text_field :link %>
+        <%= f.submit %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
-<br>
-<br>
 
 <div id="post_information">
   <div class="row">
     <% @sort.each do |post| %>
+<hr>
     <div class="col-md-2"><%= link_to post.comments.count, post_comments_path(post_id: post.id) %> comments </div>
     <div class="col-md-6"> <%= link_to post.description, post.link %> </div>
     <div class="col-md-2"> Posted by <%= post.user.user_name %> </div>
