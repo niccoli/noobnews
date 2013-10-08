@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', :git => 'https://github.com/thomas-mcdonald/bootstrap-sass'
 
 group :test, :development do
   gem 'rspec-rails'

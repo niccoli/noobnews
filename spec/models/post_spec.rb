@@ -4,6 +4,7 @@ describe Post do
   it { should validate_presence_of :description }
   it { should validate_presence_of :link }
   it { should validate_presence_of :user_id }
+  it { should ensure_length_of(:description).is_at_most(25) }
   it { should belong_to :user }
   it { should have_many :votes }
   it { should have_many :comments }

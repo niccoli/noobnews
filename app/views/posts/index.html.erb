@@ -1,39 +1,30 @@
-<h1>Welcome to Noob News</h1>
-
-<p><%= link_to "Click Here to View All Posts", @post_path %></p>
-
 <div id="create_post">
   <% if current_user %>
     <%= form_for @post do |f| %>
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, :input_html => {:maxlength => 25} %>
       <%= f.label :link %>
       <%= f.text_field :link %>
       <%= f.submit %>
     <% end %>
   <% end %>
 </div>
+<br>
+<br>
 
 <div id="post_information">
-  <ul>
+  <div class="row">
     <% @sort.each do |post| %>
-      <li><%= link_to post.description, post.link %></li>
-      <p>Posted by <%= post.user.user_name %></p>
-      <p><%= post.votes.count %> votes </p>
+    <div class="col-md-2"><%= post.comments.count %> comments </div>
+    <div class="col-md-6"> <%= link_to post.description, post.link %> </div>
+    <div class="col-md-2"> Posted by <%= post.user.user_name %> </div>
+    <div class="col-md-1"><%= post.votes.count %> votes </div>    
       <% if current_user %>
         <%= form_for @vote do |f| %>
           <%= f.hidden_field :post_id, :value => post.id %>
-          <%= f.submit %>
+          <%= f.submit "Vote" %>
         <% end %>
       <% end %>
-  <div>
-    <% if current_user %>
-      <%= link_to "New Comment", new_post_comment_path(post) %>
-    <% end %>
-      <% post.comments.each do |comment| %>
-        <p><%= "Commented by: #{comment.user.user_name} "%><%= comment.content %></p>
-      <% end %>
-    <% end %>
+  <% end %>
   </div>
-  </ul>
 </div>

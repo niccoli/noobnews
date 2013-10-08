@@ -4,8 +4,24 @@ Things to do:
 -Styling
 -Posts to open in new window
 -Allow for long links
+-Error messages
 
 
 Icebox:
 
 -Create profile pages for users
+
+
+
+HTML for ALL COMMENTS
+---------------------
+
+<% post.comments.each do |comment| %>
+  <span class="allComments"><%= "Comment by: #{comment.user.user_name} "%><%= comment.content %> </span>
+<% end %>
+
+HTML for NEW COMMENT
+--------------------
+<% if current_user %>
+<%= link_to "New Comment", new_post_comment_path(post) %></div>
+<% end %>

@@ -1,11 +1,19 @@
 @import "bootstrap";
 
+.logo {
+  margin-top: 0.5%;
+  width:20%;
+  height:20%;
+}
+
 html {
   overflow-y: scroll;
 }
 
 body {
-  padding-top: 60px;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 section {
@@ -24,13 +32,16 @@ textarea {
   margin-bottom: 10px;
 }
 
-.container {
-  text-align: center;
-}
 
 ul {
   list-style: none;
 }
 
+.navbar {
+  height: 10%;
+  background-color: purple;
+}
 
-
+.row {
+  text-align: left;
+}

@@ -10,13 +10,13 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <%= link_to "NoobNews", posts_path, id: "logo" %>
           <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home", posts_path %></li>
+            <a class="brand" href="/static_pages"><img class="logo" src="http://i.imgur.com/PVkYfou.jpg"></a> 
+            <ul class="nav navbar-nav nav pull-right">
+              <li><%= link_to "Home", static_pages_path %></li>
               <% if current_user %>
                 <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
-                <li><%= link_to "Logged In As #{current_user.user_name}"  %></li>
+                <li><%= link_to "Logged In As #{current_user.user_name}" %></li>
               <% else %>
                 <li><%= link_to "Sign Up", new_user_path %></li>
                 <li><%= link_to "Log In", new_session_path %></li>

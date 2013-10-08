@@ -6,6 +6,7 @@ NoobNews::Application.routes.draw do
   resources :users
   resources :sessions
   resources :votes
+  resources :static_pages
 
-  root :to => 'posts#index'
+  root :to => 'static_pages#index'
 end
