@@ -3,25 +3,10 @@ Things to do:
 -As a user, I want to comment on a comment, so that I can have a discussion about the comment.
 -Styling
 -Posts to open in new window
--Allow for long links
 -Error messages
+-Remove Vote button if current user has already voted.
 
 
 Icebox:
 
 -Create profile pages for users
-
-
-
-HTML for ALL COMMENTS
----------------------
-
-<% post.comments.each do |comment| %>
-  <span class="allComments"><%= "Comment by: #{comment.user.user_name} "%><%= comment.content %> </span>
-<% end %>
-
-HTML for NEW COMMENT
---------------------
-<% if current_user %>
-<%= link_to "New Comment", new_post_comment_path(post) %></div>
-<% end %>

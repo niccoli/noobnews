@@ -15,7 +15,7 @@
 <div id="post_information">
   <div class="row">
     <% @sort.each do |post| %>
-    <div class="col-md-2"><%= post.comments.count %> comments </div>
+    <div class="col-md-2"><%= link_to post.comments.count, post_comments_path(post_id: post.id) %> comments </div>
     <div class="col-md-6"> <%= link_to post.description, post.link %> </div>
     <div class="col-md-2"> Posted by <%= post.user.user_name %> </div>
     <div class="col-md-1"><%= post.votes.count %> votes </div>    

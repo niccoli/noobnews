@@ -2,10 +2,8 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
 
   def index
-    @comments = @commentable.comments 
-  end
-
-  def new
+    @comments = Post.find(params[:post_id]).comments
+    @post = Post.find(params[:post_id])
     @comment = @commentable.comments.new
   end
 
@@ -14,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comments = Comment.all
     if @comment.save
-      redirect_to posts_path, notice: "Comment Created."
+      redirect_to post_comments_path, notice: "Comment Created."
     else
       render :new
     end
